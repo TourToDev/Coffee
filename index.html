@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coffeerun</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+        form :focus:required:invalid{
+            border-color: #a94442;
+        }
+    </style>
+</head>
+<body class="container">
+    <header>
+        <h1>CoffeeRun</h1>
+    </header>
+    <section>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form data-coffee-order="form">
+                    <!--Input element will go here-->
+                    <div class="form-group">
+                        <label for="CoffeeOrder">咖啡订单</label>
+                        <input class="form-control" name="coffee" id="coffeeOrder" autofocus required
+                                                                                            pattern="[a-zA-Z\s]+">
+                    </div>
+                    <div class="form-group">
+                        <label for="emailInput">Email</label>
+                        <input class="form-control" type="email" name="emailAddress" id="emailInput" value=""
+                                                        placeholder="my@qq.com" required>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="size" value="short">
+                            short
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="size" value="tall" checked>
+                            tall
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="size" value="grande">
+                            grande
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="flavorShot">风味选择</label>
+                        <select id="flavorShot" class="form-control" name="flavor">
+                            <!--可折叠元素-->
+                            <option value="">None</option>
+                            <option value="caramel">Caramel</option>
+                            <option value="almond">Almond</option>
+                            <option value="mocha">Mocha</option>
+                    </div>
+
+                <div class="form-group">
+                    <label for="strengthLevel">咖啡因强度</label>
+                    <input type="range" name="strength" id="strengthLevel" value="30" data-slide="slide">
+                </div>
+                <button type="submit" class="btn btn-default">提交</button>
+                <button type="reset" class="btn btn-default">重置</button>
+                </form>
+
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h4>现有订单:</h4>
+                <div data-coffee-order="checklist">
+                    <!--由JS控制-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script><!--引入jquery-->
+    <script src="scripts/validation.js" charset="utf-8"></script>
+    <script src="scripts/checklist.js" charset="utf-8"></script>
+    <script src="scripts/formhandler.js" charset="utf-8"></script>
+    <script src="scripts/remotedatastore.js" charset="utf-8"></script>
+    <script src="scripts/datastore.js" charset="utf-8"></script>
+    <script src="scripts/truck.js" charset="utf-8"></script>
+    <script src="scripts/main.js" charset="utf-8"></script>
+</body>
+</html>
